@@ -1,22 +1,22 @@
 import React from 'react';
 
-function input(type, name, value, options=[], required = false){
+function input(type, name, value, options=[], required = false, id = "", funcOnChange){
     if (( type == "multiple") && options) {
         return(
             <fieldset>
                    {options.map(option => {
                        if (value=="Other" && option=="Other") {
                            return <div>
-                            <input type="checkbox" name={name} id={option}></input>
-                            <label for={option}>{option}</label>
-                            <input type="text"></input>
+                            <input type="checkbox" name={name} id={option} onChange={funcOnChange}></input>
+                            <label htmlFor={option}>{option}</label>
+                            <input type="text" onChange={funcOnChange}></input>
                             <br/>
                             </div>
                        }
                        else{
                         return <div>
-                            <input type="checkbox" name={name} id={option}></input>
-                            <label for={option}>{option}</label><br/>
+                            <input type="checkbox" name={name} id={option} onChange={funcOnChange}></input>
+                            <label htmlFor={option}>{option}</label><br/>
                             </div>
                        }
                    })}
@@ -40,7 +40,7 @@ function input(type, name, value, options=[], required = false){
             <div>
             <label>
                 {name} 
-            <input required={required} type={type}  name={name} />
+            <input required={required} type={type}  name={name} onChange={funcOnChange}/>
             </label>
             </div>
         )
