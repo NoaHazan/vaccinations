@@ -29,9 +29,9 @@ SECRET_KEY = 'django-insecure-z=#+vye3bsfc*@iy@1*2m6^!a6)wgu6=rvtksb-&i3a+&8b^e4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1",'http://localhost:3000', '127.0.0.1:8000', 'http://127.0.0.1:8000/register/']
 
-
+CSRF_COOKIE_DOMAIN = 'localhost'
 # Application definition
 
 INSTALLED_APPS = [
@@ -84,7 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'vaccinations',
-        'USER': 'noah',
+        'USER': 'postgres',
         'PASSWORD': 'Rubi@315344572',
         'HOST': '127.0.0.1',
         'PORT': '5432',

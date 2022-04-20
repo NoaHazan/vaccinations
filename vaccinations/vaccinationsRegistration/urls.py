@@ -7,5 +7,5 @@ from .views import RegisterViewSet
 
 
 urlpatterns = [
-    path('register/', views.RegisterViewSet.as_view()),
+    path('', RegisterViewSet.as_view()),
 ]

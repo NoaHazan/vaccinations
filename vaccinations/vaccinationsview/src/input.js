@@ -27,7 +27,7 @@ function input(type, name, value, options=[], required = false, id = "", funcOnC
             <div>
                 <label>
                 {name} 
-                <select required={required} name={name} >
+                <select required={required} name={name} onChange={funcOnChange}>
                    {options.map(option => <option>{option}</option>)}
 
                 </select>
