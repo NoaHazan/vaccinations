@@ -14,10 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
-from django.views.decorators.csrf import csrf_exempt
-from vaccinationsRegistration import views
 
 
 urlpatterns = [
-    path('register/', csrf_exempt(views.register), name='register')
+    path('', include('vaccinationsRegistration.urls'))
 ]

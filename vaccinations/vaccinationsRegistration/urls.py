@@ -4,8 +4,10 @@ from . import views
 from django.urls import path
 from django.conf.urls import include
 from .views import RegisterViewSet
+from vaccinationsRegistration import views
 
 
 urlpatterns = [
-    path('', RegisterViewSet.as_view()),
+    path('register/', views.register),
+    path('summary/', views.show)
 ]
