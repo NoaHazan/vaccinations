@@ -13982,7 +13982,7 @@ let cities = [
     },
 ];
 function getCities() {
-   return cities.map(city => city.english_name);
+   return cities.map(city => city);
 };
 
 export default getCities;

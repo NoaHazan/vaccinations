@@ -21,7 +21,7 @@ def register(request):
         serializer.save()
         return JsonResponse(serializer.data)
     
-    return JsonResponse(serializer.erros, status=400) #status=400 means an error has occured 
+    return JsonResponse(serializer.errors, status=400) #status=400 means an error has occured 
 
 @csrf_exempt
 def show(request):
@@ -29,3 +29,7 @@ def show(request):
     created_json = serializers.serialize("json", vaccineList)
     data = {"json" : created_json}
     return JsonResponse(data)
+
+@csrf_exempt
+def home(request):
+    return JsonResponse("")

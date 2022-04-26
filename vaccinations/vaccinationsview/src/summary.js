@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class Summary extends Component {
   constructor(props) {
     super(props);
-    this.state = { get: false };
+    this.state = {};
     this.getData = this.getData.bind(this);
   }
   getData() {
@@ -24,50 +26,76 @@ class Summary extends Component {
   }
 
   render() {
-    let { data, get } = this.state; //state is an object which contains data and get. 
+    let { data, get } = this.state;
+    if (!get) {
+      return (
+        <div>
+          <b>Please wait for data load</b>
+        </div>
+      );
+    }
     return (
       <div>
-        <table>
+        <Table striped bordered hover>
           <thead>
             <tr>
-              <td>created at</td>
-              <td>name</td>
-              <td>address</td>
-              <td>contact</td>
-              <td>birth date</td>
-              <td>infected before</td>
-              <td>comorbidities</td>
+              <th>created at</th>
+              <th>name</th>
+              <th>address</th>
+              <th>contact</th>
+              <th>birth date</th>
+              <th>infected before</th>
+              <th>comorbidities</th>
             </tr>
           </thead>
           <tbody>
-            {get ? (
-              data.forEach((value) => {
-                console.log(value);
-                return (
-                  <tr key={value.pk}>
-                    <td>{value.fields.created}</td>
-                    <td>
-                      {value.fields.firstName} {value.fields.lastName}
-                    </td>
-                    <td>
-                      {value.fields.city} {value.fields.address}{" "}
-                      {value.fields.zip}
-                    </td>
-                    <td>
-                      cell:{value.fields.cellularPhone} <br />
-                      landline: {value.fields.landline}
-                    </td>
-                    <td>{value.fields.birthDate}</td>
-                    <td>{value.fields.infected ? "yes" : "no"}</td>
-                    <td>{value.fields.created}</td>
-                  </tr>
-                );
-              })
-            ) : (
-              <tr></tr>
-            )}
+            {data.map((value, key) => {
+              return (
+                <tr key={key}>
+                  {console.log(key)}
+                  <td>{Date(value.fields.created)}</td>
+                  <td>
+                    {value.fields.firstName} {value.fields.lastName}
+                  </td>
+                  <td>
+                    {value.fields.city} {value.fields.address}{" "}
+                    {value.fields.zip}
+                  </td>
+                  <td>
+                    cell:{value.fields.cellularPhone} <br />
+                    landline: {value.fields.landline}
+                  </td>
+                  <td>{value.fields.birthDate}</td>
+                  <td>{value.fields.infected ? "yes" : "no"}</td>
+                  <td>
+                    <ul>
+                      {value.fields.comorbidities.bloodPressure ? (
+                        <li>High Blood Pressure</li>
+                      ) : (
+                        <span></span>
+                      )}
+                      {value.fields.comorbidities.bloodSugar ? (
+                        <li>High Blood Sugar</li>
+                      ) : (
+                        <span></span>
+                      )}
+                      {value.fields.comorbidities.lungDisease ? (
+                        <li>Lung Disease</li>
+                      ) : (
+                        <span></span>
+                      )}
+                      {value.fields.comorbidities.other ? (
+                        <li>{value.fields.comorbidities.other}</li>
+                      ) : (
+                        <span></span>
+                      )}
+                    </ul>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   }

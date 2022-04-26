@@ -69,165 +69,177 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            name="firstName"
-            id="firstName"
-            value={this.state.firstName.value}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            type="text"
-            name="lastName"
-            id="lastName"
-            value={this.state.lastName.value}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="birthDate">Date of Birth</label>
-          <input
-            type="date"
-            name="birthDate"
-            id="birthDate"
-            value={this.state.birthDate.value}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="address">Address</label>
-          <input
-            type="text"
-            name="address"
-            id="address"
-            value={this.state.address.value}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="city">City</label>
-          <select
-            type="text"
-            name="city"
-            id="city"
-            value={this.state.city.value}
-            onChange={this.handleChange}
-          >
-            {getCities().map((item) => (
-              <option key={item.semel_yeshuv} value={item.english_name}>
-                {item.english_name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="zip">Zip Code</label>
-          <input
-            type="number"
-            name="zip"
-            id="zip"
-            value={this.state.zip.value}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="landLine">landLine</label>
-          <input
-            type="text"
-            name="landLine"
-            id="landLine"
-            value={this.state.landLine.value}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="cellularPhone">Cellular Phone</label>
-          <input
-            type="text"
-            name="cellularPhone"
-            id="cellularPhone"
-            value={this.state.cellularPhone.value}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="infected">
-            I have been infected by covid19 before
-          </label>
-          <input
-            type="checkbox"
-            name="infected"
-            id="infected"
-            value=""
-            checked={this.state.infected}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="comorbidities">
-            Do you have any comorbidities? (check all that apply)
-          </label>
-          <br />
-          <input
-            type="checkbox"
-            name="bloodPressure"
-            id="bloodPressure"
-            onChange={this.handleChange}
-          />
-          <label style={{ marginLeft: "10px" }} htmlFor="bloodPressure">
-            high blood pressure
-          </label>
-          <br />
-          <input
-            type="checkbox"
-            name="bloodSugar"
-            id="bloodSugar"
-            onChange={this.handleChange}
-          />
-          <label style={{ marginLeft: "10px" }} htmlFor="bloodSugar">
-            high blood sugar
-          </label>
-          <br />
-          <input
-            type="checkbox"
-            name="lungDisease"
-            id="lungDisease"
-            onChange={this.handleChange}
-          />
-          <label style={{ marginLeft: "10px" }} htmlFor="lungDisease">
-            lung disease
-          </label>
-          <br />
-          <input
-            type="checkbox"
-            name="other"
-            id="other"
-            onChange={this.handleChange}
-          />
-          <label
-            style={{ marginLeft: "10px", marginRight: "10px" }}
-            htmlFor="other"
-          >
-            Other
-          </label>
-          <input
-            type="text"
-            name="other"
-            id="other"
-            readOnly={!this.state.other}
-            onChange={this.handleChange}
-          />
-          <br />
-          <br />
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+      <div className="container">
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group pt-2">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              className="form-control"
+              type="text"
+              name="firstName"
+              id="firstName"
+              value={this.state.firstName.value}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group pt-2">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              className="form-control"
+              type="text"
+              name="lastName"
+              id="lastName"
+              value={this.state.lastName.value}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group pt-2">
+            <label htmlFor="birthDate">Date of Birth</label>
+            <input
+              className="form-control"
+              type="date"
+              name="birthDate"
+              id="birthDate"
+              value={this.state.birthDate.value}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group pt-2">
+            <label htmlFor="address">Address</label>
+            <input
+              className="form-control"
+              type="text"
+              name="address"
+              id="address"
+              value={this.state.address.value}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group pt-2">
+            <label htmlFor="city">City</label>
+            <select
+              className="form-control"
+              type="text"
+              name="city"
+              id="city"
+              value={this.state.city.value}
+              onChange={this.handleChange}
+            >
+              {getCities().map((item) => (
+                <option key={item.semel_yeshuv} value={item.english_name}>
+                  {item.english_name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group pt-2">
+            <label htmlFor="zip">Zip Code</label>
+            <input
+              className="form-control"
+              type="number"
+              name="zip"
+              id="zip"
+              value={this.state.zip.value}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group pt-2">
+            <label htmlFor="landLine">landLine</label>
+            <input
+              className="form-control"
+              type="text"
+              name="landLine"
+              id="landLine"
+              value={this.state.landLine.value}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group pt-2">
+            <label htmlFor="cellularPhone">Cellular Phone</label>
+            <input
+              className="form-control"
+              type="text"
+              name="cellularPhone"
+              id="cellularPhone"
+              value={this.state.cellularPhone.value}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group pt-2">
+            <label htmlFor="infected">
+              I have been infected by covid19 before
+            </label>
+            <input
+              type="checkbox"
+              name="infected"
+              id="infected"
+              value=""
+              checked={this.state.infected}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group pt-2">
+            <label htmlFor="comorbidities">
+              Do you have any comorbidities? (check all that apply)
+            </label>
+            <br />
+            <input
+              type="checkbox"
+              name="bloodPressure"
+              id="bloodPressure"
+              onChange={this.handleChange}
+            />
+            <label style={{ marginLeft: "10px" }} htmlFor="bloodPressure">
+              high blood pressure
+            </label>
+            <br />
+            <input
+              type="checkbox"
+              name="bloodSugar"
+              id="bloodSugar"
+              onChange={this.handleChange}
+            />
+            <label style={{ marginLeft: "10px" }} htmlFor="bloodSugar">
+              high blood sugar
+            </label>
+            <br />
+            <input
+              type="checkbox"
+              name="lungDisease"
+              id="lungDisease"
+              onChange={this.handleChange}
+            />
+            <label style={{ marginLeft: "10px" }} htmlFor="lungDisease">
+              lung disease
+            </label>
+            <br />
+            <input
+              type="checkbox"
+              name="other"
+              id="other"
+              onChange={this.handleChange}
+            />
+            <label
+              style={{ marginLeft: "10px", marginRight: "10px" }}
+              htmlFor="other"
+            >
+              Other
+            </label>
+            <input
+              type="text"
+              name="other"
+              id="other"
+              readOnly={!this.state.other}
+              onChange={this.handleChange}
+            />
+            <br />
+            <br />
+          </div>
+          <div className="form-group pt-2">
+          <button type="submit" className="btn btn-success">Submit</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

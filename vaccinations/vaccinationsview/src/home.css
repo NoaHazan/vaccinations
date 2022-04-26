@@ -1,0 +1,20 @@
+html,body,#root {
+  height: 100%;
+  width: 100%;
+}
+.home {
+  height: 100%;
+  width: 100%;
+  background-image: url("home.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-main {
+  padding:100px 20px;
+  text-align: center;
+  color: #FFF;
+  font-size: 4em;
+  text-shadow: 1px 2px 3px #333;
+}
