@@ -11,3 +11,5 @@ urlpatterns = [
     path('register/', views.register),
     path('summary/', views.show)
 ]
+
+
