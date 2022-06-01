@@ -39,14 +39,14 @@ class Form extends Component {
       JSON.stringify({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
-        birthDate: this.state.birthDate,
+        date: this.state.birthDate,
         address: this.state.address,
         city: this.state.city,
-        zip: this.state.zip,
+        zipCode: this.state.zip,
         landLine: this.state.landLine,
         cellularPhone: this.state.cellularPhone,
-        infected: this.state.infected,
-        comorbidities: {
+        covidInfections: this.state.infected,
+        Comorbidities: {
           bloodPressure: this.state.bloodPressure,
           bloodSugar: this.state.bloodSugar,
           lungDisease: this.state.lungDisease,
@@ -54,6 +54,7 @@ class Form extends Component {
         },
       })
     );
+    console.log(formData);
     const requestOptions = {
       method: "POST",
       headers: {
@@ -70,7 +71,7 @@ class Form extends Component {
   render() {
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit}>
+<form onSubmit={this.handleSubmit}>
           <div className="form-group pt-2">
             <label htmlFor="firstName">First Name</label>
             <input
@@ -100,6 +101,7 @@ class Form extends Component {
               type="date"
               name="birthDate"
               id="birthDate"
+              required
               value={this.state.birthDate.value}
               onChange={this.handleChange}
             />

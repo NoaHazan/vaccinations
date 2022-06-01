@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from .models import Registration
+from vaccinationsRegistration.models import Registration
 
 class RegistrationSerializer(ModelSerializer):
     class Meta:

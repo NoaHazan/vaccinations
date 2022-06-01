@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-z=#+vye3bsfc*@iy@1*2m6^!a6)wgu6=rvtksb-&i3a+&8b^e4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1",'http://localhost:3000', '127.0.0.1:8000', 'http://127.0.0.1:8000/register/']
+ALLOWED_HOSTS = ["127.0.0.1",'localhost']
 
 CSRF_COOKIE_DOMAIN = 'localhost'
 # Application definition
@@ -50,12 +50,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
+
 ]
 
 ROOT_URLCONF = 'vaccinations.urls'
